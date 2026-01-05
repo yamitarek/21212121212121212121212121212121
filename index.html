@@ -4,39 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Für Slimak 🐌</title>
+
     <style>
         body {
+            background-color: #595959;
             font-family: 'Courier New', monospace;
             text-align: center;
             padding: 2rem;
+            margin: 0;
         }
+
         .line {
-            font-size: 1.5rem;
-            background: #1E1E1E;
+            background: #1e1e1e;
+            color: #90EE90;
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
-            white-space: pre-wrap;
-            color: #90EE90;
+
+            white-space: pre;
+            overflow-x: auto;
+
+            font-size: clamp(10px, 2.5vw, 16px);
+            line-height: 1.2;
         }
     </style>
 </head>
-<body style="background-color:#595959;">
-    <h1>  </h1>
-    <div class="line" id="lineDisplay">Loading...</div>
 
-    <script src="script.js"></script>
-    
+<body>
+    <h1></h1>
+
+    <!-- ASCII goes here -->
+    <div class="line" id="ascii">Loading...</div>
+
     <script>
         fetch('heart.txt')
-        .then(response => response.text())
-        .then(text => {
-            document.getElementById('ascii').textContent = text;
-        })
-        .catch(err => {
-            document.getElementById('ascii').textContent = 'Failed to load ASCII art.';
-        });
-  </script>
-
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('ascii').textContent = text;
+            })
+            .catch(() => {
+                document.getElementById('ascii').textContent =
+                    'Failed to load ASCII art.';
+            });
+    </script>
 </body>
 </html>
