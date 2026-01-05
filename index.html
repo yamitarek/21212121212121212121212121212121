@@ -26,11 +26,17 @@
     <div class="line" id="lineDisplay">Loading...</div>
 
     <script src="script.js"></script>
-
-    <p>&nbsp;</p>
-    <div id="list">
-        <p><iframe src="heart.txt" frameborder="0" height="400" width="95%"></iframe></p>
-    </div>
+    
+    <script>
+        fetch('heart.txt')
+        .then(response => response.text())
+        .then(text => {
+            document.getElementById('ascii').textContent = text;
+        })
+        .catch(err => {
+            document.getElementById('ascii').textContent = 'Failed to load ASCII art.';
+        });
+  </script>
 
 </body>
 </html>
