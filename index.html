@@ -31,14 +31,14 @@
 </head>
 
 <body>
-    <h1></h1>
+
+    <!-- Used by script.js -->
+    <div class="line" id="lineDisplay">Loading text...</div>
+
+    <!-- Used for ASCII art -->
+    <div class="line" id="ascii">Loading ASCII...</div>
 
     <script src="script.js"></script>
-    
-    <!-- ASCII goes here -->
-    <div class="line" id="ascii">Loading...</div>
-
-    
 
     <script>
         fetch('heart.txt')
@@ -51,5 +51,6 @@
                     'Failed to load ASCII art.';
             });
     </script>
+
 </body>
 </html>
